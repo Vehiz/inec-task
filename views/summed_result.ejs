@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Summed Result</title>
+</head>
+<body>
+  <h1>Summed Result of Polling Units</h1>
+  <form action="/summed-result" method="POST">
+    <label for="localGovernment">Select Local Government:</label>
+    <select id="localGovernment" name="localGovernment">
+      <% localGovernments.forEach(function(localGovernment) { %>
+        <option value="<%= localGovernment.id %>"><%= localGovernment.name %></option>
+      <% }); %>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+
+  <% if (summedResult) { %>
+    <h2>Summed Result for <%= selectedLocalGovernment.name %></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Party</th>
+          <th>Total Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% summedResult.forEach(function(result) { %>
+          <tr>
+            <td><%= result.partyAbbreviation %></td>
+            <td><%= result.totalScore %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } %>
+</body>
+</html>

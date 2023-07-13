@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Polling Unit Result</title>
+</head>
+<body>
+  <h1>Result for Polling Unit: <%= pollingUnitId %></h1>
+  <% if (result) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Party</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% result.forEach(function(row) { %>
+          <tr>
+            <td><%= row.partyAbbreviation %></td>
+            <td><%= row.partyScore %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No result found for the polling unit.</p>
+  <% } %>
+</body>
+</html>

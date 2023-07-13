@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Polling Unit</title>
+</head>
+<body>
+  <h1>New Polling Unit</h1>
+  <form action="/new-polling-unit" method="POST">
+    <label for="pollingUnitId">Polling Unit ID:</label>
+    <input type="text" id="pollingUnitId" name="pollingUnitId">
+    <table>
+      <thead>
+        <tr>
+          <th>Party Abbreviation</th>
+          <th>Party Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i = 0; i < 9; i++) { %>
+          <tr>
+            <td>
+              <input type="text" name="partyAbbreviation[]" required>
+            </td>
+            <td>
+              <input type="number" name="partyScore[]" required>
+            </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
